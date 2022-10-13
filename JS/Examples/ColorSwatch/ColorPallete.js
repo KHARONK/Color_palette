@@ -110,9 +110,9 @@ var ColorPalette = function () {
     this._RYBIndex = parseInt(random(0, this._RYBColors.length));
     this._baseColor = this._RYBColors[this._RYBIndex];
   }
-};
 
-/**
+
+  /**
  * Sets a global flag, allowing the user to change the colormode from RGB to RYB when they please.  
  * @mode RYB or RGB
  * @function
@@ -302,7 +302,7 @@ ColorPalette.prototype.randomHue = function () {
 * Coverts HSL to RGB with a given HSL value.
 * Further Documentation: https://tips4java.wordpress.com/about/
 */
-function HSLtoRGB(hsl) {
+ColorPalette.prototype.HSLtoRGB = function (hsl) {
   let h = hsl[0];
   let s = hsl[1];
   let l = hsl[2];
@@ -357,7 +357,7 @@ function HSLtoRGB(hsl) {
 * Coverts HSL to RGB with a given HSL value.
 * Further Documentation: https://tips4java.wordpress.com/about/
 */
-function HueToRGB(p, q, h) {
+ColorPalette.prototype.HueToRGB = function (p, q, h) {
   if (h < 0) h += 1;
 
   if (h > 1) h -= 1;
@@ -377,7 +377,7 @@ function HueToRGB(p, q, h) {
   return p;
 }
 
-function RGBtoHSL(col) {
+ColorPalette.prototype.RGBtoHSL = function (col) {
   let r = red(col) / 255;
   let g = green(col) / 255;
   let b = blue(col) / 255;
@@ -408,3 +408,6 @@ function RGBtoHSL(col) {
 
   return [h, s * 100, l * 100];
 }
+};
+
+
